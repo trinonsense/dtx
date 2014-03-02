@@ -1,0 +1,14 @@
+{
+	"name": "dtx",
+	"version": "0.0.1",
+	"dependencies": {
+		"bower": "",
+		"grunt-cli": "",
+		"grunt-contrib-compass": "",
+		"grunt-contrib-csslint": "",
+		"grunt-contrib-jasmine": "",
+		"grunt-contrib-jshint": "",
+		"grunt-contrib-requirejs": "",
+		"grunt-contrib-watch": ""
+	}
+}
