@@ -1,0 +1,25 @@
+{
+  "name": "dtx",
+  "version": "0.0.1",
+  "main": "css/main.css",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.*",
+    "jquery": "~2.1.*",
+    "leaflet": "~0.7.*",
+    "marionette": "~1.6.*",
+    "modernizr": "~2.7.*",
+    "normalize.css": "~3.*",
+    "underscore": "~1.6.*"
+  },
+  "resolutions": {
+    "jquery": "~2.1.*"
+  }
+}
