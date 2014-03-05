@@ -17,6 +17,9 @@
     "marionette": "~1.6.*",
     "modernizr": "~2.7.*",
     "normalize.css": "~3.*",
+    "requirejs": "~2.1.11",
+    "requirejs-domready": "~2.0.1",
+    "requirejs-plugins": "~1.0.2",
     "underscore": "~1.6.*"
   },
   "resolutions": {
