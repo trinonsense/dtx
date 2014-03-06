@@ -1,4 +1,4 @@
-require.config(require_config);
+require.config(requireConfig);
 require([], function() {
 
 });

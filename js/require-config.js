@@ -1,5 +1,5 @@
-var require_config = {
-	enforceDefine: true
+var requireConfig = {
+	enforceDefine: true,
 	baseUrl: 'js',
 	paths: {
 		jquery: '../bower_packages/jquery/jquery',

@@ -1,3 +1,5 @@
+/* global module:true */
+
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -7,7 +9,8 @@ module.exports = function(grunt) {
 				tasks: [],
 				options: {
 					livereload: true
-			}
+				}
+			},
 			scss: {
 				files: 'scss/*.scss',
 				task: 'compass'
@@ -16,12 +19,12 @@ module.exports = function(grunt) {
 
 		compass: {
 			options: {
-					sassDir: 'scss',
-					cssDir: 'css'
-					outputStyle: 'expanded',
-					debugInfo: true
-					// importPath: '',
-					// specify: 'scss/main.scss'
+				sassDir: 'scss',
+				cssDir: 'css',
+				outputStyle: 'expanded',
+				debugInfo: true
+				// importPath: '',
+				// specify: 'scss/main.scss'
 			},
 			prod: {
 				options: {
@@ -32,14 +35,16 @@ module.exports = function(grunt) {
 		},
 
 		csslint: {
-			src: ['css/main.css']
+			src: ['css/main.css'],
 			options: {
 				// csslintrc: ''
 			}
 		},
 
 		jshint: {
+			src: ['Gruntfile.js', 'js/**/*.js'],
 			options: {
+				// option order as listed on http://www.jshint.com/docs/options/
 				jshintrc: '.jshintrc'
 			}
 		},
@@ -51,13 +56,12 @@ module.exports = function(grunt) {
 		jasmine: {
 			options: {}
 		}
-	};
-
-		grunt.loadNpmTasks('grunt-contrib-watch');
-		grunt.loadNpmTasks('grunt-contrib-compass');
-		grunt.loadNpmTasks('grunt-contrib-csslint');
-		grunt.loadNpmTasks('grunt-contrib-jasmine');
-		grunt.loadNpmTasks('grunt-contrib-jshint');
-		grunt.loadNpmTasks('grunt-contrib-requirejs');
 	});
+
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-csslint');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
 };
