@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 			},
 			scss: {
 				files: 'scss/*.scss',
-				task: 'compass'
+				tasks: 'compass:dev'
 			}
 		},
 
@@ -21,10 +21,13 @@ module.exports = function(grunt) {
 			options: {
 				sassDir: 'scss',
 				cssDir: 'css',
-				outputStyle: 'expanded',
-				debugInfo: true
-				// importPath: '',
-				// specify: 'scss/main.scss'
+				importPath: ['./']
+			},
+			dev: {
+				options: {
+					outputStyle: 'expanded',
+					debugInfo: true
+				}
 			},
 			prod: {
 				options: {
