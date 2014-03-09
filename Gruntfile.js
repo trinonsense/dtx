@@ -6,14 +6,10 @@ module.exports = function(grunt) {
 		watch: {
 			dev: {
 				files: ['*.html', 'scss/**/*.scss', 'js/**/*.js'],
-				tasks: ['jshint', 'csscomb', 'compass:dev'],
+				tasks: ['jshint', 'csscomb', 'csslint', 'compass:dev'],
 				options: {
 					livereload: true
 				}
-			},
-			scss: {
-				files: 'scss/*.scss',
-				tasks: 'compass:dev'
 			}
 		},
 
@@ -21,8 +17,7 @@ module.exports = function(grunt) {
 			options: {
 				sassDir: 'scss',
 				cssDir: 'css',
-				importPath: ['./'],
-				force: true
+				importPath: ['./']
 			},
 			dev: {
 				options: {
@@ -39,9 +34,9 @@ module.exports = function(grunt) {
 		},
 
 		csslint: {
-			src: ['css/main.css'],
+			src: ['scss/*.scss'],
 			options: {
-				// csslintrc: ''
+				csslintrc: '.csslintrc'
 			}
 		},
 

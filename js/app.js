@@ -1,8 +1,8 @@
 define(function() {
 	var app = {
-		Models: {},
-		Collections: {},
-		Views: {}
+		models: {},
+		collections: {},
+		views: {}
 	};
 
 	return app;
