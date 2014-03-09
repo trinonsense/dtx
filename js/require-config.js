@@ -8,7 +8,8 @@ require.config({
 		jquery: '../bower_packages/jquery/dist/jquery',
 		backbone: '../bower_packages/backbone/backbone',
 		underscore: '../bower_packages/underscore/underscore',
-		modernizr: '../bower_packages/modernizr/modernizr'
+		modernizr: '../bower_packages/modernizr/modernizr',
+		leaflet: '../bower_packages/leaflet/dist/leaflet'
 	},
 	shim: {
 		modernizr: {

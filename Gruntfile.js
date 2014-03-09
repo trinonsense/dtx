@@ -8,7 +8,8 @@ module.exports = function(grunt) {
 				files: ['*.html', 'scss/**/*.scss', 'js/**/*.js'],
 				tasks: ['jshint', 'compass:dev'],
 				options: {
-					livereload: true
+					livereload: true,
+					interrupt: true
 				}
 			},
 			scss: {
@@ -32,7 +33,8 @@ module.exports = function(grunt) {
 			prod: {
 				options: {
 					outputStyle: 'compressed',
-					environment: 'production'
+					environment: 'production',
+					force: true
 				}
 			}
 		},

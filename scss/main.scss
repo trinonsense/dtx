@@ -1,4 +1,5 @@
-@import "compass";
+@import "libs";
 
-@import "bower_packages/normalize.css/normalize";
-@import "bower_packages/html5-boilerplate/css/main";
+html, body, #map {
+    height: 100%;
+}
