@@ -6,10 +6,9 @@ module.exports = function(grunt) {
 		watch: {
 			dev: {
 				files: ['*.html', 'scss/**/*.scss', 'js/**/*.js'],
-				tasks: ['jshint', 'compass:dev'],
+				tasks: ['jshint', 'csscomb', 'compass:dev'],
 				options: {
-					livereload: true,
-					interrupt: true
+					livereload: true
 				}
 			},
 			scss: {
@@ -22,12 +21,12 @@ module.exports = function(grunt) {
 			options: {
 				sassDir: 'scss',
 				cssDir: 'css',
-				importPath: ['./']
+				importPath: ['./'],
+				force: true
 			},
 			dev: {
 				options: {
 					outputStyle: 'expanded',
-					debugInfo: true
 				}
 			},
 			prod: {
@@ -60,6 +59,18 @@ module.exports = function(grunt) {
 
 		jasmine: {
 			options: {}
+		},
+
+		csscomb: {
+			scss: {
+				expand: true,
+				cwd: 'scss/',
+				src: ['*.scss'],
+				dest: 'scss/',
+				options: {
+					config: 'csscomb.json'
+				}
+			},
 		}
 	});
 
@@ -69,4 +80,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-csscomb');
 };
