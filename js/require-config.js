@@ -9,7 +9,8 @@ require.config({
 		backbone: '../bower_packages/backbone/backbone',
 		underscore: '../bower_packages/underscore/underscore',
 		modernizr: '../bower_packages/modernizr/modernizr',
-		leaflet: '../bower_packages/leaflet/dist/leaflet'
+		leaflet: '../bower_packages/leaflet/dist/leaflet',
+		domReady: '../bower_packages/requirejs-domready/domReady'
 	},
 	shim: {
 		modernizr: {
@@ -18,6 +19,16 @@ require.config({
 	}
 });
 
-define(['main', 'modernizr'], function(main) {
-	main.run();
+define([
+	'domReady',
+	'main',
+	'modernizr'
+], function(
+	domReady,
+	main
+) {
+
+	domReady(function whenDOMIsReady() {
+		main.run();
+	});
 });
