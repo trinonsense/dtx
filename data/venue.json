@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Texas Theater",
+    "link": "http://www.thetexastheatre.com/",
+    "pos": {
+      "lat": 32.7434097,
+      "long": -96.8258317
+    },
+    "description": ""
+  },
+  {
+    "title": "Granada Theater",
+    "link": "http://www.granadatheater.com/",
+    "pos": {
+      "lat": 32.8308875,
+      "long": -96.770076
+    },
+    "description": ""
+  },
+  {
+    "title": "Dada Dallas",
+    "link": "http://www.dadadallas.com/",
+    "pos": {
+      "lat": 32.78457,
+      "long": -96.7839703
+    },
+    "description": ""
+  },
+  {
+    "title": "Dan's SilverLeaf",
+    "link": "http://www.danssilverleaf.com/",
+    "pos": {
+      "lat": 33.2140425,
+      "long": -97.1301701
+    },
+    "description": ""
+  },
+  {
+    "title": "Trees",
+    "link": "http://treesdallas.com/",
+    "pos": {
+      "lat": 32.7845648,
+      "long": -96.7843977
+    },
+    "description": ""
+  },
+  {
+    "title": "The Ochre House",
+    "link": "http://www.ochrehousetheater.com/",
+    "pos": {
+      "lat": 32.7822739,
+      "long": -96.7669891
+    },
+    "description": ""
+  }
+]

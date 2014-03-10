@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Fraternal Order of Eagles",
+    "link": "http://www.foe.com/",
+    "pos": {
+      "lat": 32.8125534,
+      "long": -96.7068912
+    },
+    "description": ""
+  },
+  {
+    "title": "White Rock Lake",
+    "link": "http://www.yelp.com/biz/white-rock-lake-dallas",
+    "pos": {
+      "lat": 32.8330331,
+      "long": -96.7215547
+    },
+    "description": ""
+  },
+  {
+    "title": "Reverchon Park",
+    "link": "http://www.yelp.com/biz/reverchon-park-dallas",
+    "pos": {
+      "lat": 32.8012907,
+      "long": -96.8111665
+    },
+    "description": ""
+  },
+  {
+    "title": "Klyde Warren Park",
+    "link": "http://www.klydewarrenpark.org/",
+    "pos": {
+      "lat": 32.7894391,
+      "long": -96.8016315
+    },
+    "description": ""
+  },
+  {
+    "title": "Katy Trail",
+    "link": "http://www.katytraildallas.org/site/PageServer",
+    "pos": {
+      "lat": 32.795285,
+      "long": -96.8133004
+    },
+    "description": ""
+  }
+]

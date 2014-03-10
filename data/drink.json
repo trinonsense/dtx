@@ -1,0 +1,173 @@
+[
+  {
+    "title": "Beauty Bar",
+    "link": "http://thebeautybar.com/home-dallas/",
+    "pos": {
+      "lat": 32.8119203,
+      "long": -96.7750544
+    },
+    "description": ""
+  },
+  {
+    "title": "The Goat",
+    "link": "http://www.thegoatdallas.com/",
+    "pos": {
+      "lat": 32.8126023,
+      "long": -96.7318313
+    },
+    "description": ""
+  },
+  {
+    "title": "Ships Lounge",
+    "link": "http://www.yelp.com/biz/ships-lounge-dallas",
+    "pos": {
+      "lat": 32.8103793,
+      "long": -96.7702104
+    },
+    "description": ""
+  },
+  {
+    "title": "Deep Ellum Brewing Company",
+    "link": "http://www.deepellumbrewing.com/",
+    "pos": {
+      "lat": 32.7806246,
+      "long": -96.7813221
+    },
+    "description": ""
+  },
+  {
+    "title": "Spec's Wine, Spirits and Finer Foods",
+    "link": "http://www.specsonline.com/cgi-bin/showpage?pageid=main",
+    "pos": {
+      "lat": 32.8784258,
+      "long": -96.7694734
+    },
+    "description": ""
+  },
+  {
+    "title": "Double Wide Bar",
+    "link": "http://www.thedoublewidebar.com/",
+    "pos": {
+      "lat": 32.7849783,
+      "long": -96.7736162
+    },
+    "description": ""
+  },
+  {
+    "title": "Single Wide",
+    "link": "http://www.yelp.com/biz/single-wide-dallas",
+    "pos": {
+      "lat": 32.8152555,
+      "long": -96.7701154
+    },
+    "description": ""
+  },
+  {
+    "title": "The Amsterdam Bar",
+    "link": "http://amsterdambar.blogspot.com/",
+    "pos": {
+      "lat": 32.7822462,
+      "long": -96.766852
+    },
+    "description": ""
+  },
+  {
+    "title": "The Balcony Club",
+    "link": "https://www.facebook.com/balconyclubjazz",
+    "pos": {
+      "lat": 32.8118618,
+      "long": -96.7529627
+    },
+    "description": ""
+  },
+  {
+    "title": "Cosmo Restaurant & Bar",
+    "link": "http://www.yelp.com/biz/cosmos-bar-and-lounge-dallas",
+    "pos": {
+      "lat": 32.8115391,
+      "long": -96.7616918
+    },
+    "description": ""
+  },
+  {
+    "title": "The Foundry",
+    "link": "http://cs-tf.com/about/",
+    "pos": {
+      "lat": 32.7729784,
+      "long": -96.8310643
+    },
+    "description": ""
+  },
+  {
+    "title": "Texas Theater",
+    "link": "http://www.thetexastheatre.com/",
+    "pos": {
+      "lat": 32.7434097,
+      "long": -96.8258317
+    },
+    "description": ""
+  },
+  {
+    "title": "Slip Inn",
+    "link": "http://www.theslipinn.com/",
+    "pos": {
+      "lat": 32.8118332,
+      "long": -96.774589
+    },
+    "description": ""
+  },
+  {
+    "title": "The Libertine Bar",
+    "link": "http://www.libertinebar.com/",
+    "pos": {
+      "lat": 32.8154984,
+      "long": -96.7702693
+    },
+    "description": ""
+  },
+  {
+    "title": "Elbow Room",
+    "link": "http://elbowroomdallas.com/bar/",
+    "pos": {
+      "lat": 32.7883503,
+      "long": -96.7833923
+    },
+    "description": ""
+  },
+  {
+    "title": "Bar Belmont",
+    "link": "http://www.belmontdallas.com/eats_drinks.html",
+    "pos": {
+      "lat": 32.7693071,
+      "long": -96.8368712
+    },
+    "description": ""
+  },
+  {
+    "title": "Community Beer Company",
+    "link": "http://www.communitybeer.com/",
+    "pos": {
+      "lat": 32.7913845,
+      "long": -96.8162492
+    },
+    "description": ""
+  },
+  {
+    "title": "The Old Monk",
+    "link": "http://www.oldmonkdallas.com/",
+    "pos": {
+      "lat": 32.8201433,
+      "long": -96.7847201
+    },
+    "description": ""
+  },
+  {
+    "title": "Craft and Growler",
+    "link": "https://www.facebook.com/CraftAndGrowler",
+    "pos": {
+      "lat": 32.7814305,
+      "long": -96.7666956
+    },
+    "description": ""
+  }
+]

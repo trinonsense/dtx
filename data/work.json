@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Sabre/TripCase",
+    "link": "http://travel.tripcase.com/",
+    "pos": {
+      "lat": 32.9825128,
+      "long": -97.1606515
+    },
+    "description": ""
+  },
+  {
+    "title": "Plano ISD/Shepton High School",
+    "link": "http://www.pisd.edu/",
+    "pos": {
+      "lat": 33.0161514,
+      "long": -96.8116818
+    },
+    "description": ""
+  },
+  {
+    "title": "Randall Stout Entertainment",
+    "link": "http://www.randalstout.com/",
+    "pos": {
+      "lat": 32.9335418,
+      "long": -97.1002889
+    },
+    "description": ""
+  },
+  {
+    "title": "TeCo Theatrical Productions",
+    "link": "http://www.tecotheater.org/",
+    "pos": {
+      "lat": 32.7436416,
+      "long": -96.8376418
+    },
+    "description": ""
+  },
+  {
+    "title": "Williams Sonoma",
+    "link": "http://www.williams-sonoma.com/",
+    "pos": {
+      "lat": 32.8669815,
+      "long": -96.7743233
+    },
+    "description": ""
+  },
+  {
+    "title": "Coffee House Cafe",
+    "link": "http://www.coffeehousecafe.com/",
+    "pos": {
+      "lat": 32.9981192,
+      "long": -96.7989813
+    },
+    "description": ""
+  }
+]

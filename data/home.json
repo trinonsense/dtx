@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Alta Design District",
+    "link": "http://www.altadesigndistrict.com/",
+    "pos": {
+      "lat": 32.7927426,
+      "long": -96.8160237
+    },
+    "description": ""
+  },
+  {
+    "title": "Cambridge Court Apartments",
+    "link": "http://www.cambridgecourtapartmenthomes.com/",
+    "pos": {
+      "lat": 32.8655071,
+      "long": -96.7619132
+    },
+    "description": ""
+  },
+  {
+    "title": "Mission Gleneagles",
+    "link": "http://www.landmarkatgleneagles.com/",
+    "pos": {
+      "lat": 33.0073764,
+      "long": -96.8206917
+    },
+    "description": ""
+  }
+]

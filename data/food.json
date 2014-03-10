@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Koryo Kalbi Korean BBQ",
+    "link": "http://www.koryobbq.com/",
+    "pos": {
+      "lat": 32.8958538,
+      "long": -96.8935833
+    },
+    "description": ""
+  },
+  {
+    "title": "Bubba's Cooks Country",
+    "link": "http://www.bubbascatering.org/",
+    "pos": {
+      "lat": 32.8474165,
+      "long": -96.7869872
+    },
+    "description": ""
+  },
+  {
+    "title": "Serious Pizza",
+    "link": "http://seriouspizza.net/",
+    "pos": {
+      "lat": 32.7847757,
+      "long": -96.7833592
+    },
+    "description": ""
+  },
+  {
+    "title": "Cane Rosso",
+    "link": "http://www.ilcanerosso.com/",
+    "pos": {
+      "lat": 32.7847757,
+      "long": -96.7833592
+    },
+    "description": ""
+  },
+  {
+    "title": "Oak Cliff Coffee Roasters",
+    "link": "http://www.oakcliffcoffee.com/",
+    "pos": {
+      "lat": 32.7495886,
+      "long": -96.8367095
+    },
+    "description": ""
+  },
+  {
+    "title": "Boulevardier",
+    "link": "http://dallasboulevardier.com/",
+    "pos": {
+      "lat": 32.7481502,
+      "long": -96.8281213
+    },
+    "description": ""
+  },
+  {
+    "title": "Maple & Motor",
+    "link": "http://mapleandmotor.com/",
+    "pos": {
+      "lat": 32.8150325,
+      "long": -96.8270872
+    },
+    "description": ""
+  },
+  {
+    "title": "Teppo Yakitori & Sushi Bar",
+    "link": "http://www.yelp.com/biz/teppo-yakitori-and-sushi-bar-dallas",
+    "pos": {
+      "lat": 32.8144572,
+      "long": -96.7701103
+    },
+    "description": ""
+  },
+  {
+    "title": "Fuel Town",
+    "link": "http://www.yelp.com/biz/fuel-town-dallas",
+    "pos": {
+      "lat": 32.81049,
+      "long": -96.850666
+    },
+    "description": ""
+  },
+  {
+    "title": "The Grape Restaurant",
+    "link": "http://www.thegraperestaurant.com/",
+    "pos": {
+      "lat": 32.8233297,
+      "long": -96.7701023
+    },
+    "description": ""
+  },
+  {
+    "title": "El Atoron",
+    "link": "http://elatorondallas.com/",
+    "pos": {
+      "lat": 32.81263,
+      "long": -96.7760464
+    },
+    "description": ""
+  },
+  {
+    "title": "BuzzBrews Kitchen",
+    "link": "http://www.buzzbrews.com/",
+    "pos": {
+      "lat": 32.8151792,
+      "long": -96.7891184
+    },
+    "description": ""
+  },
+  {
+    "title": "Lockhart Smokehouse BBQ",
+    "link": "http://www.lockhartsmokehouse.com/",
+    "pos": {
+      "lat": 32.7494076,
+      "long": -96.8284176
+    },
+    "description": ""
+  },
+  {
+    "title": "Pecan Lodge",
+    "link": "http://www.pecanlodge.com/",
+    "pos": {
+      "lat": 32.7774631,
+      "long": -96.7899116
+    },
+    "description": ""
+  },
+  {
+    "title": "B B Bop Seoul Kitchen",
+    "link": "http://www.bbbop.com/",
+    "pos": {
+      "lat": 32.8521243,
+      "long": -96.7699084
+    },
+    "description": ""
+  },
+  {
+    "title": "Zaguan Bakery & Cafe",
+    "link": "http://www.zaguanbakery.com/",
+    "pos": {
+      "lat": 32.8055026,
+      "long": -96.812507
+    },
+    "description": ""
+  },
+  {
+    "title": "Taqueria El Si Hay",
+    "link": "http://www.yelp.com/biz/taqueria-el-si-hay-dallas",
+    "pos": {
+      "lat": 32.749694,
+      "long": -96.831752
+    },
+    "description": ""
+  },
+  {
+    "title": "Bolsa Mercado",
+    "link": "http://bolsadallas.com/bolsa-mercado",
+    "pos": {
+      "lat": 32.7494271,
+      "long": -96.8327745
+    },
+    "description": ""
+  },
+  {
+    "title": "Henk's European Deli & Black Forest Bakery",
+    "link": "http://www.henksblackforestbakery.com/",
+    "pos": {
+      "lat": 32.8669953,
+      "long": -96.7650139
+    },
+    "description": ""
+  },
+  {
+    "title": "Central Market",
+    "link": "http://www.centralmarket.com/Home",
+    "pos": {
+      "lat": 33.0020538,
+      "long": -96.7663845
+    },
+    "description": ""
+  }
+]

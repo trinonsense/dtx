@@ -1,0 +1,20 @@
+[
+  {
+    "title": "The University of Texas at Dallas",
+    "link": "http://www.utdallas.edu/",
+    "pos": {
+      "lat": 32.9859509,
+      "long": -96.7500104
+    },
+    "description": ""
+  },
+  {
+    "title": "Brookhaven College",
+    "link": "http://www.brookhavencollege.edu/",
+    "pos": {
+      "lat": 32.9292825,
+      "long": -96.8500908
+    },
+    "description": ""
+  }
+]
