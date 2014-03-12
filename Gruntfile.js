@@ -5,8 +5,13 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			dev: {
-				files: ['*.html', 'scss/**/*.scss', 'js/**/*.js'],
-				tasks: ['jshint', 'csscomb', 'csslint', 'compass:dev'],
+				files: [
+					'*.html',
+					'templates/*.hbs',
+					'scss/**/*.scss',
+					'js/**/*.js'
+				],
+				tasks: ['jshint', 'handlebars', 'csscomb', 'csslint', 'compass:dev'],
 				options: {
 					livereload: true
 				}
@@ -48,6 +53,20 @@ module.exports = function(grunt) {
 			}
 		},
 
+		handlebars: {
+			compile: {
+				expand: true,
+				cwd: 'templates/',
+				src: '*.hbs',
+				dest: 'compiled_templates/',
+				ext: '.js',
+				options: {
+					namespace: false,
+					amd: true
+				}
+			}
+		},
+
 		requirejs: {
 			options: {}
 		},
@@ -75,5 +94,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-contrib-handlebars');
 	grunt.loadNpmTasks('grunt-csscomb');
 };

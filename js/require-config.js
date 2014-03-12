@@ -10,7 +10,9 @@ require.config({
 		underscore: '../bower_packages/underscore/underscore',
 		modernizr: '../bower_packages/modernizr/modernizr',
 		leaflet: '../bower_packages/leaflet/dist/leaflet',
-		domReady: '../bower_packages/requirejs-domready/domReady'
+		domReady: '../bower_packages/requirejs-domready/domReady',
+		handlebars: '../bower_packages/handlebars.js/dist/handlebars.amd',
+		templates: '../compiled_templates'
 	},
 	shim: {
 		modernizr: {
