@@ -1356,7 +1356,52 @@ textarea {
   border: 1px solid #666;
 }
 
-/* line 3, ../scss/main.scss */
+/* line 5, ../scss/main.scss */
 html, body, .main-map {
   height: 100%;
+}
+
+/* line 9, ../scss/main.scss */
+.main-map {
+  z-index: 1;
+}
+
+/* line 13, ../scss/main.scss */
+.main-menu {
+  -webkit-transition: top 0.5s;
+  -moz-transition: top 0.5s;
+  -o-transition: top 0.5s;
+  transition: top 0.5s;
+  position: absolute;
+  top: -256px;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 22, ../scss/main.scss */
+.main-menu:hover, .main-menu.is-open {
+  top: 0;
+}
+
+/* line 26, ../scss/main.scss */
+.main-menu__item a {
+  -webkit-transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -o-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+  display: block;
+  padding: 5px 15px;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #f6f6f6;
+  text-decoration: none;
+}
+/* line 34, ../scss/main.scss */
+.main-menu__item a:hover {
+  background-color: rgba(102, 102, 102, 0.9);
+}
+
+/* line 38, ../scss/main.scss */
+.main-menu__toggle a {
+  border-bottom-right-radius: 5px;
 }

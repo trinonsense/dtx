@@ -1,5 +1,40 @@
 @import 'libs';
+$TEXT-COLOR: #f6f6f6;
+$BG-COLOR: rgba(51, 51, 51, 0.9);
 
 html, body, .main-map {
-    height: 100%;
+  height: 100%;
+}
+
+.main-map {
+  z-index: 1;
+}
+
+.main-menu {
+  @include transition(top .5s);
+  position: absolute;
+  top: -(32px*8);
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &:hover, &.is-open {
+  	top: 0;
+  }
+}
+.main-menu__item a {
+  @include transition(background-color .4s);
+  display: block;
+	padding: 5px 15px;
+  background-color: $BG-COLOR;
+  color: $TEXT-COLOR;
+  text-decoration: none;
+
+	&:hover {
+		background-color: lighten($BG-COLOR, 20%);
+	}
+}
+.main-menu__toggle a {
+	border-bottom-right-radius: 5px;
 }
