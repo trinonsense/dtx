@@ -5,12 +5,10 @@
     "bower": "",
     "grunt-cli": "",
     "grunt-contrib-compass": "",
-    "grunt-contrib-csslint": "",
     "grunt-contrib-jasmine": "",
     "grunt-contrib-jshint": "",
     "grunt-contrib-requirejs": "",
     "grunt-contrib-watch": "",
-    "grunt-contrib-handlebars": "^0.7.0",
-    "grunt-csscomb": "^2.0.1"
+    "grunt-contrib-handlebars": "^0.7.0"
   }
 }

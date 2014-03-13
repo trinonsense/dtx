@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 					'scss/**/*.scss',
 					'js/**/*.js'
 				],
-				tasks: ['jshint', 'handlebars', 'csscomb', 'csslint', 'compass:dev'],
+				tasks: ['jshint', 'handlebars', 'compass:dev'],
 				options: {
 					livereload: true
 				}
@@ -35,13 +35,6 @@ module.exports = function(grunt) {
 					environment: 'production',
 					force: true
 				}
-			}
-		},
-
-		csslint: {
-			src: ['scss/*.scss'],
-			options: {
-				csslintrc: '.csslintrc'
 			}
 		},
 
@@ -73,27 +66,13 @@ module.exports = function(grunt) {
 
 		jasmine: {
 			options: {}
-		},
-
-		csscomb: {
-			scss: {
-				expand: true,
-				cwd: 'scss/',
-				src: ['*.scss'],
-				dest: 'scss/',
-				options: {
-					config: 'csscomb.json'
-				}
-			},
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-handlebars');
-	grunt.loadNpmTasks('grunt-csscomb');
 };

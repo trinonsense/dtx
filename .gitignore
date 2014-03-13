@@ -1,3 +1,4 @@
 node_modules/
 bower_packages/
+server.js
 .sass-cache/
