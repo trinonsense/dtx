@@ -15,9 +15,9 @@ html, body, .main-map {
 }
 
 .main-menu {
-  @include transition(top 400ms);
+  @include transition(top 300ms);
   position: absolute;
-  top: -(32px*8);
+  top: -(32px*9);
   z-index: 2;
   margin: 0;
   padding: 0;

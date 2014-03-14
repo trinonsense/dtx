@@ -1,26 +1,35 @@
 define([
-	'backbone'
+	'backbone',
+	'app'
 ], function(
-	Backbone
+	Backbone,
+	app
 ) {
 
 	var Router = Backbone.Router.extend({
 		routes: {
-			'(/)': 'about',
+			'(/)': 'home',
 			'about(/)': 'about',
-			'map(/)': 'map',
-			'category/:category/:location(/)': 'location'
+			'category/:category': 'category',
+			'category/:category/:location(/)': 'category',
+			'location/:location': 'location'
+		},
+
+		home: function() {
+			app.views.mapView.clearMarkers().loadAllLocations();
 		},
 
 		about: function() {
 
 		},
 
-		map: function() {
+		category: function(category, location) {
+			app.views.mapView.clearMarkers();
 
 		},
 
-		location: function() {
+		location: function(location) {
+			app.views.mapView.clearMarkers();
 
 		}
 	});

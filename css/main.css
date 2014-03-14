@@ -1373,12 +1373,12 @@ html, body, .main-map {
 
 /* line 17, ../scss/main.scss */
 .main-menu {
-  -webkit-transition: top 400ms;
-  -moz-transition: top 400ms;
-  -o-transition: top 400ms;
-  transition: top 400ms;
+  -webkit-transition: top 300ms;
+  -moz-transition: top 300ms;
+  -o-transition: top 300ms;
+  transition: top 300ms;
   position: absolute;
-  top: -256px;
+  top: -288px;
   z-index: 2;
   margin: 0;
   padding: 0;
