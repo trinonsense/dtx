@@ -11,8 +11,11 @@ require.config({
 		modernizr: '../bower_packages/modernizr/modernizr',
 		leaflet: '../bower_packages/leaflet/dist/leaflet',
 		domReady: '../bower_packages/requirejs-domready/domReady',
+		json: '../bower_packages/requirejs-plugins/src/json',
+		text: '../bower_packages/requirejs-text/text',
 		handlebars: '../bower_packages/handlebars.js/dist/handlebars.amd',
-		templates: '../compiled_templates'
+		templates: '../compiled_templates',
+		data: '../data'
 	},
 	shim: {
 		modernizr: {
