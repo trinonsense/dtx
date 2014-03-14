@@ -4,20 +4,27 @@ define([
 	'backbone',
 	'router',
 	'app',
-	'views/map-view'
+	'views/map-view',
+	'views/menu-view'
 ], function(
 	Backbone,
 	Router,
 	app,
-	MapView
+	MapView,
+	MenuView
 ) {
-	var main = {};
-	function run() {
-		app.views.mapView = new MapView();
-		app.Router = new Router();
-		Backbone.history.start();
-	}
+	var main = {
+		run: function() {
+			this.setupViews();
+			app.Router = new Router();
+			Backbone.history.start();
+		},
 
-	main.run = run;
+		setupViews: function() {
+			app.views.mapView = new MapView();
+			app.views.menuView = new MenuView();
+		}
+	};
+
 	return main;
 });

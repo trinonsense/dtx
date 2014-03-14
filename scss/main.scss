@@ -1,6 +1,10 @@
 @import 'libs';
-$TEXT-COLOR: #f6f6f6;
+$FG-COLOR: #f6f6f6;
 $BG-COLOR: rgba(51, 51, 51, 0.9);
+
+html {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 html, body, .main-map {
   height: 100%;
@@ -11,7 +15,7 @@ html, body, .main-map {
 }
 
 .main-menu {
-  @include transition(top .5s);
+  @include transition(top 400ms);
   position: absolute;
   top: -(32px*8);
   z-index: 2;
@@ -19,22 +23,28 @@ html, body, .main-map {
   padding: 0;
   list-style-type: none;
 
-  &:hover, &.is-open {
-  	top: 0;
-  }
+	html.no-touch &:hover,
+	html.touch &.is-open {
+		top: 0;
+	}
 }
 .main-menu__item a {
-  @include transition(background-color .4s);
+  @include transition(background-color 250ms);
   display: block;
 	padding: 5px 15px;
   background-color: $BG-COLOR;
-  color: $TEXT-COLOR;
+  color: $FG-COLOR;
   text-decoration: none;
 
-	&:hover {
+	html.no-touch &:hover,
+	html.touch &:active {
 		background-color: lighten($BG-COLOR, 20%);
 	}
 }
 .main-menu__toggle a {
-	border-bottom-right-radius: 5px;
+	border-bottom-right-radius: .5em;
+
+	.main-menu.is-open & {
+		background-color: rgba(195, 100, 100, 0.9);
+	}
 }

@@ -1357,21 +1357,26 @@ textarea {
 }
 
 /* line 5, ../scss/main.scss */
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 9, ../scss/main.scss */
 html, body, .main-map {
   height: 100%;
 }
 
-/* line 9, ../scss/main.scss */
+/* line 13, ../scss/main.scss */
 .main-map {
   z-index: 1;
 }
 
-/* line 13, ../scss/main.scss */
+/* line 17, ../scss/main.scss */
 .main-menu {
-  -webkit-transition: top 0.5s;
-  -moz-transition: top 0.5s;
-  -o-transition: top 0.5s;
-  transition: top 0.5s;
+  -webkit-transition: top 400ms;
+  -moz-transition: top 400ms;
+  -o-transition: top 400ms;
+  transition: top 400ms;
   position: absolute;
   top: -256px;
   z-index: 2;
@@ -1379,29 +1384,33 @@ html, body, .main-map {
   padding: 0;
   list-style-type: none;
 }
-/* line 22, ../scss/main.scss */
-.main-menu:hover, .main-menu.is-open {
+/* line 27, ../scss/main.scss */
+html.no-touch .main-menu:hover, html.touch .main-menu.is-open {
   top: 0;
 }
 
-/* line 26, ../scss/main.scss */
+/* line 31, ../scss/main.scss */
 .main-menu__item a {
-  -webkit-transition: background-color 0.4s;
-  -moz-transition: background-color 0.4s;
-  -o-transition: background-color 0.4s;
-  transition: background-color 0.4s;
+  -webkit-transition: background-color 250ms;
+  -moz-transition: background-color 250ms;
+  -o-transition: background-color 250ms;
+  transition: background-color 250ms;
   display: block;
   padding: 5px 15px;
   background-color: rgba(51, 51, 51, 0.9);
   color: #f6f6f6;
   text-decoration: none;
 }
-/* line 34, ../scss/main.scss */
-.main-menu__item a:hover {
+/* line 40, ../scss/main.scss */
+html.no-touch .main-menu__item a:hover, html.touch .main-menu__item a:active {
   background-color: rgba(102, 102, 102, 0.9);
 }
 
-/* line 38, ../scss/main.scss */
+/* line 44, ../scss/main.scss */
 .main-menu__toggle a {
-  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: .5em;
+}
+/* line 47, ../scss/main.scss */
+.main-menu.is-open .main-menu__toggle a {
+  background-color: rgba(195, 100, 100, 0.9);
 }
