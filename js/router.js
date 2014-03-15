@@ -1,11 +1,13 @@
 define([
 	'underscore',
 	'backbone',
-	'app'
+	'app',
+	'helpers',
 ], function(
 	_,
 	Backbone,
-	app
+	app,
+	Helpers
 ) {
 
 	var Router = Backbone.Router.extend({
@@ -77,9 +79,10 @@ define([
 			}
 		},
 
-		location: function(locationTitle) {
-			var marker = app.views.mapView.getMarker(locationTitle),
-				location = (marker && marker.location) || app.findLocation(locationTitle);
+		location: function(locationTitleFragment) {
+			var locationTitle = Helpers.deconstructURLFragment(locationTitleFragment),
+				marker = app.views.mapView.getMarker(locationTitle),
+				location = (marker && marker.location) || app.getLocation(locationTitle);
 
 			if (!_(location).isUndefined()) {
 				if(!app.alreadyStarted){

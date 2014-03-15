@@ -38,15 +38,14 @@ define([
 		},
 
 		loadLocation: function(location) {
-			var locationTitle = location.get('title'),
+			var title = location.get('title'),
 				lat = location.get('pos').lat,
 				lng = location.get('pos').long,
-				title = location.get('title'),
 				marker = L.marker([lat, lng], {title: title})
 										.on('click', this.markerHandler, this)
 										.addTo(this.map);
 
-			this.markers[locationTitle] = {
+			this.markers[title] = {
 				location: location,
 				marker: marker
 			};
