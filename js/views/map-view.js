@@ -1,16 +1,15 @@
 define([
 	'backbone',
 	'underscore',
-	'app',
 	'leaflet'
 ], function(
 	Backbone,
 	_,
-	app,
 	L
 ) {
 	var MapView = Backbone.View.extend({
-		markers: [],
+		markers: {},
+		markerHandler: function() {/* noop */},
 
 		initialize: function() {
 			var tileURL = 'http://{s}.tile.cloudmade.com/bdd6cda1b22b4048b78ca7a8e7f7f909/1714' +
@@ -23,8 +22,13 @@ define([
 			}).addTo(this.map);
 		},
 
-		loadCategories: function() {
-			_(app.collections).each(this.loadCategory, this);
+		setMarkerHandler: function(callback) {
+			this.markerHandler = callback;
+			return this;
+		},
+
+		loadCategories: function(collections) {
+			_(collections).each(this.loadCategory, this);
 			return this;
 		},
 
@@ -34,11 +38,18 @@ define([
 		},
 
 		loadLocation: function(location) {
-			var lat = location.get('pos').lat,
+			var locationTitle = location.get('title'),
+				lat = location.get('pos').lat,
 				lng = location.get('pos').long,
-				marker = L.marker([lat, lng]).addTo(this.map);
+				title = location.get('title'),
+				marker = L.marker([lat, lng], {title: title})
+										.on('click', this.markerHandler, this)
+										.addTo(this.map);
 
-			this.markers.push(marker);
+			this.markers[locationTitle] = {
+				location: location,
+				marker: marker
+			};
 			return this;
 		},
 
@@ -52,11 +63,15 @@ define([
 
 		clearMarkers: function() {
 			_(this.markers).each(function(marker) {
-				this.map.removeLayer(marker);
+				this.map.removeLayer(marker.marker);
 			}, this);
 
-			this.markers.length = 0;
+			this.markers = {};
 			return this;
+		},
+
+		getMarker: function(locationTitle) {
+			return this.markers[locationTitle];
 		}
 	});
 
