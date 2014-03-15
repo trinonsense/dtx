@@ -12,11 +12,12 @@ define([
 
 	var Router = Backbone.Router.extend({
 		routes: {
-			'(/)*invalid': 'home',
+			'(/)': 'home',
 			'about(/)': 'about',
 			'category/:category': 'category',
 			'category/:category/:location(/)': 'categoryLocation',
-			'location/:location': 'location'
+			'location/:location': 'location',
+			'*invalid': 'invalid'
 		},
 
 		home: function(invalidURL) {
@@ -24,10 +25,6 @@ define([
 
 			if (!app.alreadyStarted && !invalidURL) {
 				this.about();
-			}
-
-			if (invalidURL) {
-				this.navigate('', {replace: true});
 			}
 
 			app.views.mapView
@@ -109,6 +106,11 @@ define([
 			} else {
 				Backbone.history.history.back();
 			}
+		},
+
+		invalid: function() {
+			this.home(true);
+			this.navigate('', {replace: true});
 		}
 	});
 
