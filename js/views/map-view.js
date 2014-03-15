@@ -48,6 +48,7 @@ define([
 				this.map.removeLayer(marker);
 			}, this);
 
+			this.markers.length = 0;
 			return this;
 		}
 	});
