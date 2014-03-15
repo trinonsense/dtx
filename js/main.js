@@ -1,4 +1,5 @@
 define([
+	'underscore',
 	'backbone',
 	'router',
 	'app',
@@ -7,6 +8,7 @@ define([
 	'json!data/jobs.json', 'json!data/parks.json', 'json!data/schools.json',
 	'json!data/venues.json'
 ], function(
+	_,
 	Backbone,
 	Router,
 	app,
@@ -21,6 +23,7 @@ define([
 			this.loadData();
 			app.Router = new Router();
 			Backbone.history.start();
+			app.alreadyStarted = true;
 		},
 
 		setupViews: function() {
@@ -29,7 +32,7 @@ define([
 		},
 
 		loadData: function() {
-			app.collections = {
+			var data = {
 				drinks: new Backbone.Collection(drinksData),
 				foods: new Backbone.Collection(foodsData),
 				homes: new Backbone.Collection(homesData),
@@ -38,6 +41,8 @@ define([
 				schools: new Backbone.Collection(schoolsData),
 				venues: new Backbone.Collection(venuesData)
 			};
+
+			_(app.collections).extend(data);
 		}
 	};
 

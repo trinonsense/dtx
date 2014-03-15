@@ -35,9 +35,23 @@ define([
 			}
 		},
 
-		location: function(location) {
-			app.views.mapView.clearMarkers();
+		location: function(locationTitle) {
+			var location = app.findLocation(locationTitle);
 
+			if (!_(location).isUndefined()) {
+				app.views.mapView
+					.clearMarkers()
+					.loadLocation(location)
+					.focusLocation(location);
+
+			} else {
+				if (!app.alreadyStarted) {
+					this.navigate('', {trigger: true});
+
+				} else {
+					Backbone.history.history.back();
+				}
+			}
 		}
 	});
 

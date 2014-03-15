@@ -24,22 +24,29 @@ define([
 		},
 
 		loadAllLocations: function() {
-			_(app.collections).each(function(collection) {
-				this.loadLocations(collection);
-			}, this);
-
+			_(app.collections).each(this.loadLocations, this);
 			return this;
 		},
 
 		loadLocations: function(category) {
-			category.each(function(location) {
-				var lat = location.get('pos').lat,
-					lng = location.get('pos').long,
-					marker = L.marker([lat, lng]).addTo(this.map);
+			category.each(this.loadLocation, this);
+			return this;
+		},
 
-				this.markers.push(marker);
-			},this);
+		loadLocation: function(location) {
+			var lat = location.get('pos').lat,
+				lng = location.get('pos').long,
+				marker = L.marker([lat, lng]).addTo(this.map);
 
+			this.markers.push(marker);
+			return this;
+		},
+
+		focusLocation: function(location) {
+			var lat = location.get('pos').lat,
+				lng = location.get('pos').long;
+
+			this.map.panTo([lat, lng], {animate: true});
 			return this;
 		},
 
