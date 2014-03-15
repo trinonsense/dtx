@@ -18,13 +18,20 @@ define([
 		},
 
 		home: function() {
+			var router = this;
+
 			if (!app.alreadyStarted) {
 				this.about();
 			}
 
 			app.views.mapView
 				.clearMarkers()
-				.loadCategories();
+				.setMarkerHandler(function(e) {
+					var locationName = e.target.options.title;
+					this.focusLocation(this.getMarker(locationName).location);
+					router.navigate('location/' + locationName);
+				})
+				.loadCategories(app.collections);
 		},
 
 		about: function() {
@@ -65,13 +72,14 @@ define([
 		},
 
 		location: function(locationTitle) {
-			var location = app.findLocation(locationTitle);
+			var marker = app.views.mapView.getMarker(locationTitle),
+				location = (marker && marker.location) || app.findLocation(locationTitle);
 
 			if (!_(location).isUndefined()) {
-				app.views.mapView
-					.clearMarkers()
-					.loadLocation(location)
-					.focusLocation(location);
+				if(!app.alreadyStarted){
+					app.views.mapView.loadLocation(location);
+				}
+				app.views.mapView.focusLocation(location);
 
 			} else {
 				this.isNotFound();
