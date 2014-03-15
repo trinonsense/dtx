@@ -33,18 +33,35 @@ define([
 
 		category: function(categoryName) {
 			var category = app.collections[categoryName];
-			app.views.mapView.clearMarkers();
 
 			if (!_(category).isUndefined()) {
-				app.views.mapView.loadCategory(category);
+				app.views.mapView
+					.clearMarkers()
+					.loadCategory(category);
 
 			} else {
 				this.isNotFound();
 			}
 		},
 
-		categoryLocation: function() {
+		categoryLocation: function(categoryName, locationTitle) {
+			var location, category = app.collections[categoryName];
 
+			if (!_(category).isUndefined()) {
+				if (!app.alreadyStarted) {
+					app.views.mapView.loadCategory(category);
+				}
+				location = category.findWhere({title: locationTitle});
+
+				if (!_(location).isUndefined()) {
+					app.views.mapView.focusLocation(location);
+				} else {
+					this.isNotFound();
+				}
+
+			} else {
+				this.isNotFound();
+			}
 		},
 
 		location: function(locationTitle) {
