@@ -39,11 +39,17 @@ define([
 		},
 
 		category: function(categoryName) {
-			var category = app.collections[categoryName];
+			var router = this,
+				category = app.collections[categoryName];
 
 			if (!_(category).isUndefined()) {
 				app.views.mapView
 					.clearMarkers()
+					.setMarkerHandler(function(e) {
+						var locationName = e.target.options.title;
+						this.focusLocation(this.getMarker(locationName).location);
+						router.navigate('category/'+ categoryName +'/'+ locationName);
+					})
 					.loadCategory(category);
 
 			} else {
@@ -56,7 +62,7 @@ define([
 
 			if (!_(category).isUndefined()) {
 				if (!app.alreadyStarted) {
-					app.views.mapView.loadCategory(category);
+					this.category(categoryName);
 				}
 				location = category.findWhere({title: locationTitle});
 
