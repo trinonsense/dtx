@@ -12,18 +12,22 @@ define([
 
 	var Router = Backbone.Router.extend({
 		routes: {
-			'(/)': 'home',
+			'(/)*invalid': 'home',
 			'about(/)': 'about',
 			'category/:category': 'category',
 			'category/:category/:location(/)': 'categoryLocation',
 			'location/:location': 'location'
 		},
 
-		home: function() {
+		home: function(invalidURL) {
 			var router = this;
 
-			if (!app.alreadyStarted) {
+			if (!app.alreadyStarted && !invalidURL) {
 				this.about();
+			}
+
+			if (invalidURL) {
+				this.navigate('', {replace: true});
 			}
 
 			app.views.mapView
