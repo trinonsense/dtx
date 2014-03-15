@@ -3,11 +3,12 @@ define([
 ) {
 	var helpers = {
 		constructURLFragment: function(str) {
-			return str.replace(' ', '-');
+
+			return str.replace(/ /g, '-');
 		},
 
 		deconstructURLFragment: function(URLFragment) {
-			return URLFragment.replace('-', ' ');
+			return URLFragment.replace(/-/g, ' ');
 		}
 	};
 
