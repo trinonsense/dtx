@@ -32,7 +32,7 @@ define([
 				.setMarkerHandler(function(e) {
 					var locationName = e.target.options.title;
 					this.focusLocation(this.getMarker(locationName).location);
-					router.navigate('location/' + locationName);
+					router.navigate('location/' + Helpers.constructURLFragment(locationName));
 				})
 				.loadCategories(app.collections);
 		},
@@ -51,7 +51,7 @@ define([
 					.setMarkerHandler(function(e) {
 						var locationName = e.target.options.title;
 						this.focusLocation(this.getMarker(locationName).location);
-						router.navigate('category/'+ categoryName +'/'+ locationName);
+						router.navigate('category/'+ categoryName +'/'+ Helpers.constructURLFragment(locationName));
 					})
 					.loadCategory(category);
 
