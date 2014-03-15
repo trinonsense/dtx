@@ -59,13 +59,16 @@ define([
 			}
 		},
 
-		categoryLocation: function(categoryName, locationTitle) {
-			var location, category = app.collections[categoryName];
+		categoryLocation: function(categoryName, locationTitleFragment) {
+			var location, locationTitle,
+				category = app.collections[categoryName];
 
 			if (!_(category).isUndefined()) {
 				if (!app.alreadyStarted) {
 					this.category(categoryName);
 				}
+
+				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment);
 				location = category.findWhere({title: locationTitle});
 
 				if (!_(location).isUndefined()) {
