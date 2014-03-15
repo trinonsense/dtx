@@ -13,26 +13,38 @@ define([
 			'(/)': 'home',
 			'about(/)': 'about',
 			'category/:category': 'category',
-			'category/:category/:location(/)': 'category',
+			'category/:category/:location(/)': 'categoryLocation',
 			'location/:location': 'location'
 		},
 
 		home: function() {
-			app.views.mapView.clearMarkers().loadAllLocations();
+			if (!app.alreadyStarted) {
+				this.about();
+			}
+
+			app.views.mapView
+				.clearMarkers()
+				.loadCategories();
 		},
 
 		about: function() {
 
 		},
 
-		category: function(category, location) {
-			var locations;
+		category: function(categoryName) {
+			var category = app.collections[categoryName];
 			app.views.mapView.clearMarkers();
 
-			if (_(location).isNull()) {
-				locations = app.collections[category];
-				app.views.mapView.loadLocations(locations);
+			if (!_(category).isUndefined()) {
+				app.views.mapView.loadCategory(category);
+
+			} else {
+				this.isNotFound();
 			}
+		},
+
+		categoryLocation: function() {
+
 		},
 
 		location: function(locationTitle) {
@@ -45,12 +57,16 @@ define([
 					.focusLocation(location);
 
 			} else {
-				if (!app.alreadyStarted) {
-					this.navigate('', {trigger: true});
+				this.isNotFound();
+			}
+		},
 
-				} else {
-					Backbone.history.history.back();
-				}
+		isNotFound: function() {
+			if (!app.alreadyStarted) {
+				this.navigate('', {trigger: true});
+
+			} else {
+				Backbone.history.history.back();
 			}
 		}
 	});

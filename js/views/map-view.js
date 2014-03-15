@@ -23,12 +23,12 @@ define([
 			}).addTo(this.map);
 		},
 
-		loadAllLocations: function() {
-			_(app.collections).each(this.loadLocations, this);
+		loadCategories: function() {
+			_(app.collections).each(this.loadCategory, this);
 			return this;
 		},
 
-		loadLocations: function(category) {
+		loadCategory: function(category) {
 			category.each(this.loadLocation, this);
 			return this;
 		},

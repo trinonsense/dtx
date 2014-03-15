@@ -7,10 +7,10 @@ define([
 		models: {},
 		collections: {},
 		views: {},
-		findLocation: function(locationName) {
+		findLocation: function(locationTitle) {
 			var location;
 			_(this.collections).find(function(category) {
-				location = category.findWhere({title: locationName});
+				location = category.findWhere({title: locationTitle});
 				return location;
 			});
 
