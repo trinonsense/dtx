@@ -1,7 +1,9 @@
 define([
+	'underscore',
 	'backbone',
 	'app'
 ], function(
+	_,
 	Backbone,
 	app
 ) {
@@ -24,8 +26,13 @@ define([
 		},
 
 		category: function(category, location) {
+			var locations;
 			app.views.mapView.clearMarkers();
 
+			if (_(location).isNull()) {
+				locations = app.collections[category];
+				app.views.mapView.loadLocations(locations);
+			}
 		},
 
 		location: function(location) {
