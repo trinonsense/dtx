@@ -34,7 +34,8 @@ define([
 					this.focusLocation(this.getMarker(locationName).location);
 					router.navigate('location/' + Helpers.constructURLFragment(locationName));
 				})
-				.loadCategories(app.collections);
+				.loadCategories(app.collections)
+				.setMapBounds();
 		},
 
 		about: function() {
@@ -53,7 +54,8 @@ define([
 						this.focusLocation(this.getMarker(locationName).location);
 						router.navigate('category/'+ categoryName +'/'+ Helpers.constructURLFragment(locationName));
 					})
-					.loadCategory(category);
+					.loadCategory(category)
+					.setMapBounds();
 
 			} else {
 				this.isNotFound();
