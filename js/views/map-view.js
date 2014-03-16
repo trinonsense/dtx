@@ -56,7 +56,22 @@ define([
 			var lat = location.get('pos').lat,
 				lng = location.get('pos').long;
 
+			this.unfocusMarkers();
+			this.focusMarker(location);
 			this.map.panTo([lat, lng], {animate: true});
+			return this;
+		},
+
+		focusMarker: function(location) {
+			var title = location.get('title');
+			this.markers[title].marker.setOpacity(1);
+			return this;
+		},
+
+		unfocusMarkers: function() {
+			_(this.markers).each(function(marker) {
+				marker.marker.setOpacity(0.5);
+			});
 			return this;
 		},
 
