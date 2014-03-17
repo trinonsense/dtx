@@ -91,6 +91,7 @@ define([
 
 		location: function(locationTitleFragment) {
 			var router = this,
+				currentRoute = Backbone.history.fragment,
 				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment),
 				marker = app.views.mapView.getMarker(locationTitle),
 				location = (marker && marker.location) || app.getLocation(locationTitle);
@@ -102,8 +103,10 @@ define([
 				app.views.mapView
 					.focusLocation(location)
 					.setMapHandler(function() {
+						if(Backbone.history.fragment === currentRoute) {
 							router.home({dontSetMapBounds: true});
 							router.navigate('');
+						}
 					});
 
 			} else {
