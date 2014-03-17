@@ -20,10 +20,11 @@ define([
 			'*invalid': 'invalid'
 		},
 
-		home: function(invalidURL) {
+		home: function(options) {
 			var router = this;
+			options = options || {};
 
-			if (!app.alreadyStarted && !invalidURL) {
+			if (!app.alreadyStarted && !options.dontShowAbout) {
 				this.about();
 			}
 
@@ -34,8 +35,11 @@ define([
 						locationTitleFragment = Helpers.constructURLFragment(locationTitle);
 					router.navigate('location/' + locationTitleFragment, {trigger: true});
 				})
-				.loadCategories(app.collections)
-				.setMapBounds();
+				.loadCategories(app.collections);
+
+			if (!options.dontSetMapBounds) {
+				app.views.mapView.setMapBounds();
+			}
 		},
 
 		about: function() {
@@ -98,6 +102,7 @@ define([
 				app.views.mapView
 					.focusLocation(location)
 					.setMapHandler(function() {
+							router.home({dontSetMapBounds: true});
 							router.navigate('');
 					});
 
@@ -116,7 +121,7 @@ define([
 		},
 
 		invalid: function() {
-			this.home(true);
+			this.home({dontShowAbout: true});
 			this.navigate('', {replace: true});
 		}
 	});
