@@ -46,20 +46,24 @@ define([
 
 		},
 
-		category: function(categoryName) {
+		category: function(categoryName, options) {
 			var router = this,
 				category = app.collections[categoryName];
+			options = options || {};
 
 			if (!_(category).isUndefined()) {
 				app.views.mapView
 					.clearMarkers()
 					.setMarkerHandler(function(e) {
-						var locationName = e.target.options.title;
-						this.focusLocation(this.getMarker(locationName).location);
-						router.navigate('category/'+ categoryName +'/'+ Helpers.constructURLFragment(locationName));
+						var locationTitle = e.target.options.title,
+							locationTitleFragment = Helpers.constructURLFragment(locationTitle);
+						router.navigate('category/'+ categoryName +'/'+ locationTitleFragment, {trigger: true});
 					})
-					.loadCategory(category)
-					.setMapBounds();
+					.loadCategory(category);
+
+				if (!options.dontSetMapBounds) {
+					app.views.mapView.setMapBounds();
+				}
 
 			} else {
 				this.isNotFound();
@@ -68,6 +72,8 @@ define([
 
 		categoryLocation: function(categoryName, locationTitleFragment) {
 			var location, locationTitle,
+				router = this,
+				currentRoute = Backbone.history.fragment,
 				category = app.collections[categoryName];
 
 			if (!_(category).isUndefined()) {
@@ -79,7 +85,16 @@ define([
 				location = category.findWhere({title: locationTitle});
 
 				if (!_(location).isUndefined()) {
-					app.views.mapView.focusLocation(location);
+					app.views.mapView
+						.focusLocation(location)
+						.setMapHandler(function() {
+							if (Backbone.history.fragment === currentRoute) {
+								router.category(categoryName, {dontSetMapBounds: true});
+								router.navigate('category/' + categoryName);
+							}
+						});
+
+
 				} else {
 					this.isNotFound();
 				}
