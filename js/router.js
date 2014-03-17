@@ -30,9 +30,9 @@ define([
 			app.views.mapView
 				.clearMarkers()
 				.setMarkerHandler(function(e) {
-					var locationName = e.target.options.title;
-					this.focusLocation(this.getMarker(locationName).location);
-					router.navigate('location/' + Helpers.constructURLFragment(locationName));
+					var locationTitle = e.target.options.title,
+						locationTitleFragment = Helpers.constructURLFragment(locationTitle);
+					router.navigate('location/' + locationTitleFragment, {trigger: true});
 				})
 				.loadCategories(app.collections)
 				.setMapBounds();
@@ -86,7 +86,8 @@ define([
 		},
 
 		location: function(locationTitleFragment) {
-			var locationTitle = Helpers.deconstructURLFragment(locationTitleFragment),
+			var router = this,
+				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment),
 				marker = app.views.mapView.getMarker(locationTitle),
 				location = (marker && marker.location) || app.getLocation(locationTitle);
 
@@ -94,7 +95,11 @@ define([
 				if(!app.alreadyStarted){
 					app.views.mapView.loadLocation(location);
 				}
-				app.views.mapView.focusLocation(location);
+				app.views.mapView
+					.focusLocation(location)
+					.setMapHandler(function() {
+							router.navigate('');
+					});
 
 			} else {
 				this.isNotFound();

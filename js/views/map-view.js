@@ -28,6 +28,11 @@ define([
 			return this;
 		},
 
+		setMapHandler: function(callback) {
+				this.map.once('zoomstart movestart', callback);
+			return this;
+		},
+
 		loadCategories: function(collections) {
 			_(collections).each(this.loadCategory, this);
 			return this;
