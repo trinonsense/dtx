@@ -29,7 +29,7 @@ define([
 		},
 
 		setMapHandler: function(callback) {
-			this.map.once('zoomend', function() {
+			this.map.once('zoomend moveend', function() {
 				this.map.once('zoomstart movestart', callback);
 			}, this);
 			return this;
