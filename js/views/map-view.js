@@ -98,6 +98,10 @@ define([
 			return this;
 		},
 
+		hasMarker: function(locationTitle) {
+			return !!this.markers[locationTitle];
+		},
+
 		getMarker: function(locationTitle) {
 			return this.markers[locationTitle];
 		},

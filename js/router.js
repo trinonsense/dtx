@@ -71,20 +71,19 @@ define([
 		},
 
 		categoryLocation: function(categoryName, locationTitleFragment) {
-			var location, locationTitle,
+			var location,
 				router = this,
+				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment),
 				currentRoute = Backbone.history.fragment,
 				category = app.collections[categoryName];
 
 			if (!_(category).isUndefined()) {
-				if (!app.alreadyStarted) {
-					this.category(categoryName);
+				if (!app.views.mapView.hasMarker(locationTitle)) {
+					this.category(categoryName, {dontSetMapBounds: true});
 				}
 
-				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment);
-				location = category.findWhere({title: locationTitle});
-
-				if (!_(location).isUndefined()) {
+				if (app.views.mapView.hasMarker(locationTitle)) {
+					location = app.views.mapView.getMarker(locationTitle).location;
 					app.views.mapView
 						.focusLocation(location)
 						.setMapHandler(function() {
@@ -93,7 +92,6 @@ define([
 								router.navigate('category/' + categoryName);
 							}
 						});
-
 
 				} else {
 					this.isNotFound();
@@ -105,16 +103,17 @@ define([
 		},
 
 		location: function(locationTitleFragment) {
-			var router = this,
+			var location,
+				router = this,
 				currentRoute = Backbone.history.fragment,
-				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment),
-				marker = app.views.mapView.getMarker(locationTitle),
-				location = (marker && marker.location) || app.getLocation(locationTitle);
+				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment);
 
-			if (!_(location).isUndefined()) {
-				if(!app.alreadyStarted){
-					app.views.mapView.loadLocation(location);
-				}
+			if(!app.views.mapView.hasMarker(locationTitle)){
+				this.home({dontSetMapBounds: true});
+			}
+
+			if (app.views.mapView.hasMarker(locationTitle)) {
+				location = app.views.mapView.getMarker(locationTitle).location;
 				app.views.mapView
 					.focusLocation(location)
 					.setMapHandler(function() {
