@@ -1,8 +1,10 @@
 define([
+	'app',
 	'backbone',
 	'underscore',
 	'leaflet'
 ], function(
+	app,
 	Backbone,
 	_,
 	L
@@ -10,6 +12,7 @@ define([
 	var MapView = Backbone.View.extend({
 		markers: {},
 		markerHandler: function() {/* noop */},
+		mapHandler: function() {/* noop */},
 
 		initialize: function() {
 			var tileURL = 'http://{s}.tile.cloudmade.com/bdd6cda1b22b4048b78ca7a8e7f7f909/1714' +
@@ -29,9 +32,17 @@ define([
 		},
 
 		setMapHandler: function(callback) {
-			this.map.once('zoomend moveend', function() {
-				this.map.once('zoomstart movestart', callback);
-			}, this);
+			this.mapHandler = callback;
+
+			if (app.alreadyStarted) {
+				this.map.once('zoomend moveend', function() {
+					this.map.once('zoomstart movestart', this.mapHandler);
+				}, this);
+
+			} else {
+				this.map.once('zoomstart movestart', this.mapHandler);
+			}
+
 			return this;
 		},
 
