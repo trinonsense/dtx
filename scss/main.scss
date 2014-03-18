@@ -1,6 +1,8 @@
 @import 'libs';
 $FG-COLOR: #f6f6f6;
 $BG-COLOR: rgba(51, 51, 51, 0.9);
+$Z-MAP: 1;
+$Z-ABOVE-MAP: 2;
 
 html {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -11,14 +13,14 @@ html, body, .main-map {
 }
 
 .main-map {
-  z-index: 1;
+  z-index: $Z-MAP;
 }
 
 .main-menu {
   @include transition(top 300ms);
   position: absolute;
   top: -(32px*9);
-  z-index: 2;
+  z-index: $Z-ABOVE-MAP;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -47,4 +49,26 @@ html, body, .main-map {
 	.main-menu.is-open & {
 		background-color: rgba(195, 100, 100, 0.9);
 	}
+}
+
+$info-panel-height: 87px;
+.info-panel {
+	@include box-shadow(0px -2px 10px lighten($BG-COLOR, 10%));
+	@include transition(bottom 300ms);
+	position: absolute;
+	bottom: -$info-panel-height;
+	height: $info-panel-height;
+	width: 100%;
+	background-color: $BG-COLOR;
+  color: $FG-COLOR;
+	z-index: $Z-ABOVE-MAP;
+
+	&.is-open {
+		bottom: 0;
+	}
+}
+.loc-infos {
+	list-style-type: none;
+	padding-left: 0;
+	text-align: center;
 }
