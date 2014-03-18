@@ -105,7 +105,7 @@ define([
 		location: function(locationTitleFragment) {
 			var location,
 				router = this,
-				currentRoute = Backbone.history.fragment,
+				currentFragment = Backbone.history.fragment,
 				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment);
 
 			if(!app.views.mapView.hasMarker(locationTitle)){
@@ -114,10 +114,20 @@ define([
 
 			if (app.views.mapView.hasMarker(locationTitle)) {
 				location = app.views.mapView.getMarker(locationTitle).location;
+
+				app.views.infoPanelView.showInfo(location);
 				app.views.mapView
 					.focusLocation(location)
 					.setMapHandler(function() {
-						if(Backbone.history.fragment === currentRoute) {
+						var nextFragment = Backbone.history.fragment,
+							itIsSameRoute = (nextFragment.search('location') === 0),
+							itIsUnfocusingLocation = (nextFragment === currentFragment);
+
+						if (!itIsSameRoute || itIsUnfocusingLocation) {
+							app.views.infoPanelView.hideInfoPanel();
+						}
+
+						if (itIsUnfocusingLocation) {
 							router.home({dontSetMapBounds: true});
 							router.navigate('');
 						}

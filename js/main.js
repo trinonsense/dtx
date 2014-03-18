@@ -3,7 +3,7 @@ define([
 	'backbone',
 	'router',
 	'app',
-	'views/map-view', 'views/menu-view',
+	'views/map-view', 'views/menu-view', 'views/info-panel-view',
 	'json!data/drinks.json', 'json!data/foods.json', 'json!data/homes.json',
 	'json!data/jobs.json', 'json!data/parks.json', 'json!data/schools.json',
 	'json!data/venues.json'
@@ -12,7 +12,7 @@ define([
 	Backbone,
 	Router,
 	app,
-	MapView, MenuView,
+	MapView, MenuView, InfoPanelView,
 	drinksData, foodsData, homesData,
 	jobsData, parksData, schoolsData,
 	venuesData
@@ -29,6 +29,7 @@ define([
 		setupViews: function() {
 			app.views.mapView = new MapView();
 			app.views.menuView = new MenuView();
+			app.views.infoPanelView = new InfoPanelView();
 		},
 
 		loadData: function() {
