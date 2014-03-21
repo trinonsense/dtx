@@ -20,6 +20,9 @@ define([
 			'*invalid': 'invalid'
 		},
 
+		//
+		// Route Handlers
+		//
 		home: function(options) {
 			var router = this;
 			options = options || {};
@@ -55,9 +58,7 @@ define([
 				app.views.mapView
 					.clearMarkers()
 					.setMarkerHandler(function(e) {
-						var locationTitle = e.target.options.title,
-							locationTitleFragment = Helpers.constructURLFragment(locationTitle);
-						router.navigate('category/'+ categoryName +'/'+ locationTitleFragment, {trigger: true});
+						router.routeToCategoryLocation(categoryName, e.target.options.title, {trigger: true});
 					})
 					.loadCategory(category);
 
@@ -83,25 +84,46 @@ define([
 				}
 
 				if (app.views.mapView.hasMarker(locationTitle)) {
+
+					// show location
 					location = app.views.mapView.getMarker(locationTitle).location;
-
+					app.views.mapView.focusLocation(location);
 					app.views.infoPanelView.showInfo(location);
-					app.views.mapView
-						.focusLocation(location)
-						.setMapHandler(function() {
-							var nextFragment = Backbone.history.fragment,
-								itIsSameRoute = (nextFragment.search('category/' + categoryName) === 0),
-								itIsUnfocusingLocation = (nextFragment === currentFragment);
 
-							if (!itIsSameRoute || itIsUnfocusingLocation) {
-								app.views.infoPanelView.hideInfoPanel();
+					// set view handlers
+					app.views.mapView.setMapHandler(function() {
+						var nextFragment = Backbone.history.fragment,
+							itIsSameRoute = (nextFragment.search('category/' + categoryName) === 0),
+							itIsUnfocusingLocation = (nextFragment === currentFragment);
+
+						if (!itIsSameRoute || itIsUnfocusingLocation) {
+							app.views.infoPanelView.hideInfoPanel();
+						}
+
+						if (itIsUnfocusingLocation) {
+							router.category(categoryName, {dontSetMapBounds: true});
+							router.routeToCategory(categoryName);
+						}
+					});
+
+					app.views.infoPanelView.setNavHandler(function(isNextLocation) {
+						var newLocation,
+							index = category.indexOf(location);
+
+						if (isNextLocation) {
+							if (++index >= category.length) {
+								index = 0;
 							}
 
-							if (itIsUnfocusingLocation) {
-								router.category(categoryName, {dontSetMapBounds: true});
-								router.navigate('category/' + categoryName);
+						} else {
+							if (--index <= 0) {
+								index = category.length - 1;
 							}
-						});
+						}
+
+						newLocation = category.at(index);
+						router.routeToCategoryLocation(categoryName, newLocation.get('title'), {trigger:true});
+					});
 
 				} else {
 					this.isNotFound();
@@ -146,6 +168,19 @@ define([
 			} else {
 				this.isNotFound();
 			}
+		},
+
+
+		//
+		// Route Helpers
+		//
+		routeToCategory: function(categoryName, options) {
+			this.navigate('category/' + categoryName, options);
+		},
+
+		routeToCategoryLocation: function(categoryName, locationTitle, options) {
+			var fragment = Helpers.constructURLFragment(locationTitle);
+			this.navigate('category/'+ categoryName +'/'+ fragment, options);
 		},
 
 		isNotFound: function() {
