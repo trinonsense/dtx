@@ -8,6 +8,12 @@ html {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+body {
+	overflow: hidden;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+}
+
 html, body, .main-map {
   height: 100%;
 }
@@ -51,14 +57,18 @@ html, body, .main-map {
 	}
 }
 
-$info-panel-height: 87px;
 .info-panel {
+	$info-panel-height: 87px;
+
 	@include box-shadow(0px -2px 10px lighten($BG-COLOR, 10%));
 	@include transition(bottom 300ms);
+	@include flexbox;
+	@include align-items(center);
 	position: absolute;
 	bottom: -$info-panel-height;
 	height: $info-panel-height;
 	width: 100%;
+	box-sizing: border-box;
 	background-color: $BG-COLOR;
   color: $FG-COLOR;
 	z-index: $Z-ABOVE-MAP;
@@ -67,8 +77,35 @@ $info-panel-height: 87px;
 		bottom: 0;
 	}
 }
-.loc-infos {
-	list-style-type: none;
-	padding-left: 0;
+.info-nav {
+	@include flexbox;
+	@include align-items(center);
+	padding: 0 10px;
+	height: 100%;
+
+	html.no-touch &:hover,
+	html.touch &:active {
+		background-color: lighten($BG-COLOR, 20%);
+	}
+}
+.info-nav__icon {
+	$info-nav-gutter: 10px;
+	$info-nav-size: 10px;
+
+	width: 0;
+	height: 0;
+	border-top: $info-nav-size solid transparent;
+	border-bottom: $info-nav-size solid transparent;
+
+	&.left {
+		border-right: $info-nav-size solid $FG-COLOR;
+	}
+	&.right {
+		border-left: $info-nav-size solid $FG-COLOR;
+	}
+}
+.location-title {
+	@include flex(1 0);
 	text-align: center;
+	margin: 0 5px;
 }
