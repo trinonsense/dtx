@@ -1,21 +1,9 @@
-define([
-	'underscore'
-],function(
-	_
-) {
+define(function() {
 	var app = {
 		models: {},
 		collections: {},
-		views: {},
-		getLocation: function(locationTitle) {
-			var location;
-			_(this.collections).find(function(category) {
-				location = category.findWhere({title: locationTitle});
-				return location;
-			});
-
-			return location;
-		}
+		categories: {},
+		views: {}
 	};
 
 	return app;

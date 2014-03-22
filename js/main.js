@@ -3,6 +3,7 @@ define([
 	'backbone',
 	'router',
 	'app',
+	'collections/category-collection',
 	'views/map-view', 'views/menu-view', 'views/info-panel-view',
 	'json!data/drinks.json', 'json!data/foods.json', 'json!data/homes.json',
 	'json!data/jobs.json', 'json!data/parks.json', 'json!data/schools.json',
@@ -12,6 +13,7 @@ define([
 	Backbone,
 	Router,
 	app,
+	Category,
 	MapView, MenuView, InfoPanelView,
 	drinksData, foodsData, homesData,
 	jobsData, parksData, schoolsData,
@@ -33,17 +35,23 @@ define([
 		},
 
 		loadData: function() {
-			var data = {
-				drinks: new Backbone.Collection(drinksData),
-				foods: new Backbone.Collection(foodsData),
-				homes: new Backbone.Collection(homesData),
-				jobs: new Backbone.Collection(jobsData),
-				parks: new Backbone.Collection(parksData),
-				schools: new Backbone.Collection(schoolsData),
-				venues: new Backbone.Collection(venuesData)
-			};
+			var collections = {
+				drinks: new Category(drinksData),
+				foods: new Category(foodsData),
+				homes: new Category(homesData),
+				jobs: new Category(jobsData),
+				parks: new Category(parksData),
+				schools: new Category(schoolsData),
+				venues: new Category(venuesData),
+			},
+				categories = new Category(_.chain(collections)
+					.map(function(collection) {return collection.toJSON();})
+					.flatten()
+					.value()
+				);
 
-			_(app.collections).extend(data);
+			_(app.collections).extend(collections);
+			_(app.categories).extend(categories);
 		}
 	};
 

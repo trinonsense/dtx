@@ -46,11 +46,6 @@ define([
 			return this;
 		},
 
-		loadCategories: function(collections) {
-			_(collections).each(this.loadCategory, this);
-			return this;
-		},
-
 		loadCategory: function(category) {
 			category.each(this.loadLocation, this);
 			return this;
