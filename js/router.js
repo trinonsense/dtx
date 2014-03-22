@@ -57,7 +57,8 @@ define([
 				app.views.mapView
 					.clearMarkers()
 					.setMarkerHandler(function(e) {
-						router.routeToCategoryLocation(categoryName, e.target.options.title, {trigger: true});
+						var locationTitle = e.target.options.title;
+						router.routeToCategoryLocation(categoryName, locationTitle, {trigger: true});
 					})
 					.loadCategory(category);
 
@@ -106,22 +107,8 @@ define([
 					});
 
 					app.views.infoPanelView.setNavHandler(function(isNextLocation) {
-						var newLocation,
-							index = category.indexOf(location);
-
-						if (isNextLocation) {
-							if (++index >= category.length) {
-								index = 0;
-							}
-
-						} else {
-							if (--index <= 0) {
-								index = category.length - 1;
-							}
-						}
-
-						newLocation = category.at(index);
-						router.routeToCategoryLocation(categoryName, newLocation.get('title'), {trigger:true});
+						var switchedLocation = category.switchLocationFrom(location, isNextLocation);
+						router.routeToCategoryLocation(categoryName, switchedLocation.get('title'), {trigger:true});
 					});
 
 				} else {
