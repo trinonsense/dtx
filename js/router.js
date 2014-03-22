@@ -38,7 +38,7 @@ define([
 						locationTitleFragment = Helpers.constructURLFragment(locationTitle);
 					router.navigate('location/' + locationTitleFragment, {trigger: true});
 				})
-				.loadCategories(app.collections);
+				.loadCategory(app.categories);
 
 			if (!options.dontSetMapBounds) {
 				app.views.mapView.setMapBounds();
