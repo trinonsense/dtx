@@ -93,10 +93,11 @@ define([
 					// set view handlers
 					app.views.mapView.setMapHandler(function() {
 						var nextFragment = Backbone.history.fragment,
-							itIsSameRoute = (nextFragment.search('category/' + categoryName) === 0),
+							switchLocationRE = new RegExp('category\/'+ categoryName +'\/.'),
+							itIsSwitchingLocation = (nextFragment.search(switchLocationRE) === 0),
 							itIsUnfocusingLocation = (nextFragment === currentFragment);
 
-						if (!itIsSameRoute || itIsUnfocusingLocation) {
+						if (!itIsSwitchingLocation || itIsUnfocusingLocation) {
 							app.views.infoPanelView.hideInfoPanel();
 						}
 
@@ -140,10 +141,10 @@ define([
 				// set view handlers
 				app.views.mapView.setMapHandler(function() {
 					var nextFragment = Backbone.history.fragment,
-						itIsSameRoute = (nextFragment.search('location') === 0),
+						itIsSwitchingLocation = (nextFragment.search(/location\/./) === 0),
 						itIsUnfocusingLocation = (nextFragment === currentFragment);
 
-					if (!itIsSameRoute || itIsUnfocusingLocation) {
+					if (!itIsSwitchingLocation || itIsUnfocusingLocation) {
 						app.views.infoPanelView.hideInfoPanel();
 					}
 
