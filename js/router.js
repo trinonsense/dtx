@@ -34,9 +34,8 @@ define([
 			app.views.mapView
 				.clearMarkers()
 				.setMarkerHandler(function(e) {
-					var locationTitle = e.target.options.title,
-						locationTitleFragment = Helpers.constructURLFragment(locationTitle);
-					router.navigate('location/' + locationTitleFragment, {trigger: true});
+					var locationTitle = e.target.options.title;
+					router.routeToLocation(locationTitle, {trigger: true});
 				})
 				.loadCategory(app.categories);
 
@@ -145,25 +144,32 @@ define([
 			}
 
 			if (app.views.mapView.hasMarker(locationTitle)) {
+
+				// show location
 				location = app.views.mapView.getMarker(locationTitle).location;
-
+				app.views.mapView.focusLocation(location);
 				app.views.infoPanelView.showInfo(location);
-				app.views.mapView
-					.focusLocation(location)
-					.setMapHandler(function() {
-						var nextFragment = Backbone.history.fragment,
-							itIsSameRoute = (nextFragment.search('location') === 0),
-							itIsUnfocusingLocation = (nextFragment === currentFragment);
 
-						if (!itIsSameRoute || itIsUnfocusingLocation) {
-							app.views.infoPanelView.hideInfoPanel();
-						}
+				// set view handlers
+				app.views.mapView.setMapHandler(function() {
+					var nextFragment = Backbone.history.fragment,
+						itIsSameRoute = (nextFragment.search('location') === 0),
+						itIsUnfocusingLocation = (nextFragment === currentFragment);
 
-						if (itIsUnfocusingLocation) {
-							router.home({dontSetMapBounds: true});
-							router.navigate('');
-						}
-					});
+					if (!itIsSameRoute || itIsUnfocusingLocation) {
+						app.views.infoPanelView.hideInfoPanel();
+					}
+
+					if (itIsUnfocusingLocation) {
+						router.home({dontSetMapBounds: true});
+						router.navigate('');
+					}
+				});
+
+				app.views.infoPanelView.setNavHandler(function(isNextLocation) {
+					var switchedLocation = app.categories.switchLocationFrom(location, isNextLocation);
+					router.routeToLocation(switchedLocation.get('title'), {trigger: true});
+				});
 
 			} else {
 				this.isNotFound();
@@ -181,6 +187,11 @@ define([
 		routeToCategoryLocation: function(categoryName, locationTitle, options) {
 			var fragment = Helpers.constructURLFragment(locationTitle);
 			this.navigate('category/'+ categoryName +'/'+ fragment, options);
+		},
+
+		routeToLocation: function(locationTitle, options) {
+			var locationTitleFragment = Helpers.constructURLFragment(locationTitle);
+			this.navigate('location/' + locationTitleFragment, options);
 		},
 
 		isNotFound: function() {
