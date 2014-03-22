@@ -10,14 +10,15 @@ define([
 		events: {
 			'click .info-nav': 'switchLocation'
 		},
+		navHandler: function() {},
 
 		setNavHandler: function(callback) {
-			this.once('switch', callback, this);
+			this.navHandler = callback;
+			return this;
 		},
 
 		switchLocation: function(e) {
-			this.trigger('switch', $(e.currentTarget).hasClass('next'));
-			return this;
+			this.navHandler($(e.currentTarget).hasClass('next'));
 		},
 
 		showInfo: function(location) {
