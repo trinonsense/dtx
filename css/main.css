@@ -1505,10 +1505,15 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   -moz-flex: 1 0;
   -ms-flex: 1 0;
   flex: 1 0;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
   text-align: center;
   margin: 0 5px;
 }
-/* line 113, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 .location-title a {
   text-decoration: none;
   color: #f6f6f6;

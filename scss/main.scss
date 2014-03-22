@@ -107,6 +107,7 @@ html, body, .main-map {
 }
 .location-title {
 	@include flex(1 0);
+	@include ellipsis;
 	text-align: center;
 	margin: 0 5px;
 
