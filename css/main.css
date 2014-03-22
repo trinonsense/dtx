@@ -1469,31 +1469,35 @@ html.no-touch .main-menu__item a:hover, html.touch .main-menu__item a:active {
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
+  -webkit-transition: background-color 250ms;
+  -moz-transition: background-color 250ms;
+  -o-transition: background-color 250ms;
+  transition: background-color 250ms;
   padding: 0 10px;
   height: 100%;
 }
-/* line 87, ../scss/main.scss */
+/* line 88, ../scss/main.scss */
 html.no-touch .info-nav:hover, html.touch .info-nav:active {
   background-color: rgba(102, 102, 102, 0.9);
 }
 
-/* line 91, ../scss/main.scss */
+/* line 92, ../scss/main.scss */
 .info-nav__icon {
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
-/* line 100, ../scss/main.scss */
+/* line 101, ../scss/main.scss */
 .info-nav__icon.left {
   border-right: 10px solid #f6f6f6;
 }
-/* line 103, ../scss/main.scss */
+/* line 104, ../scss/main.scss */
 .info-nav__icon.right {
   border-left: 10px solid #f6f6f6;
 }
 
-/* line 107, ../scss/main.scss */
+/* line 108, ../scss/main.scss */
 .location-title {
   -webkit-box-flex: 1 0;
   -moz-box-flex: 1 0;
@@ -1503,4 +1507,9 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   flex: 1 0;
   text-align: center;
   margin: 0 5px;
+}
+/* line 113, ../scss/main.scss */
+.location-title a {
+  text-decoration: none;
+  color: #f6f6f6;
 }

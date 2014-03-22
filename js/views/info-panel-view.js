@@ -25,7 +25,9 @@ define([
 			this.model = location;
 			this.$el
 				.addClass('is-open')
-				.find('.location-title').text(this.model.get('title'));
+				.find('.location-title a')
+					.text(this.model.get('title'))
+					.attr('href', this.model.get('link'));
 
 			return this;
 		},

@@ -80,6 +80,7 @@ html, body, .main-map {
 .info-nav {
 	@include flexbox;
 	@include align-items(center);
+	@include transition(background-color 250ms);
 	padding: 0 10px;
 	height: 100%;
 
@@ -108,4 +109,9 @@ html, body, .main-map {
 	@include flex(1 0);
 	text-align: center;
 	margin: 0 5px;
+
+	a {
+		text-decoration: none;
+		color: $FG-COLOR;
+	}
 }
