@@ -26,7 +26,7 @@ define([
 		},
 
 		getPrevIndex: function(index) {
-			if (--index <= 0) {
+			if (--index < 0) {
 				index = this.length - 1;
 			}
 
