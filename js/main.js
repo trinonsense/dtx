@@ -5,6 +5,7 @@ define([
 	'app',
 	'collections/category-collection',
 	'views/map-view', 'views/menu-view', 'views/info-panel-view',
+	'views/about-view',
 	'json!data/drinks.json', 'json!data/foods.json', 'json!data/homes.json',
 	'json!data/jobs.json', 'json!data/parks.json', 'json!data/schools.json',
 	'json!data/venues.json'
@@ -15,6 +16,7 @@ define([
 	app,
 	Category,
 	MapView, MenuView, InfoPanelView,
+	AboutView,
 	drinksData, foodsData, homesData,
 	jobsData, parksData, schoolsData,
 	venuesData
@@ -32,6 +34,7 @@ define([
 			app.views.mapView = new MapView();
 			app.views.menuView = new MenuView();
 			app.views.infoPanelView = new InfoPanelView();
+			app.views.aboutView = new AboutView();
 		},
 
 		loadData: function() {

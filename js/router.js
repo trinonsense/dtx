@@ -45,7 +45,11 @@ define([
 		},
 
 		about: function() {
+			if (!app.alreadyStarted) {
+				this.home({dontShowAbout: true});
+			}
 
+			app.views.aboutView.show();
 		},
 
 		category: function(categoryName, options) {
@@ -128,7 +132,10 @@ define([
 				locationTitle = Helpers.deconstructURLFragment(locationTitleFragment);
 
 			if(!app.views.mapView.hasMarker(locationTitle)){
-				this.home({dontSetMapBounds: true});
+				this.home({
+					dontSetMapBounds: true,
+					dontShowAbout: true
+				});
 			}
 
 			if (app.views.mapView.hasMarker(locationTitle)) {

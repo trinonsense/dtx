@@ -44,8 +44,7 @@ html, body, .main-map {
   color: $FG-COLOR;
   text-decoration: none;
 
-	html.no-touch &:hover,
-	html.touch &:active {
+	@include hover {
 		background-color: lighten($BG-COLOR, 20%);
 	}
 }
@@ -84,8 +83,7 @@ html, body, .main-map {
 	padding: 0 10px;
 	height: 100%;
 
-	html.no-touch &:hover,
-	html.touch &:active {
+	@include hover {
 		background-color: lighten($BG-COLOR, 20%);
 	}
 }
@@ -113,6 +111,40 @@ html, body, .main-map {
 
 	a {
 		text-decoration: none;
+		color: $FG-COLOR;
+	}
+}
+
+.about {
+	@include box-sizing(border-box);
+	@include flexbox;
+	@include justify-content(center);
+	padding: 20px;
+	background-color: rgba(246, 246, 246, 0.8);
+	position: absolute;
+	z-index: $Z-ABOVE-MAP + 1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+
+	&.is-hidden {
+		display: none;
+	}
+}
+.about__content {
+	max-width: 425px;
+	overflow: scroll;
+}
+.about__close {
+	@include border-radius(1em);
+	@include transition-property(color background-color);
+	@include transition-duration(350ms);
+	padding: .1em 1em;
+	background-color: $FG-COLOR;
+	border: 1px solid $BG-COLOR;
+
+	@include hover {
+		background-color: $BG-COLOR;
 		color: $FG-COLOR;
 	}
 }

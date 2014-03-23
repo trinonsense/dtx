@@ -13,7 +13,8 @@ module.exports = function(grunt) {
 				],
 				tasks: ['jshint', 'handlebars', 'compass:dev'],
 				options: {
-					livereload: true
+					// livereload: true
+					atBegin: true
 				}
 			}
 		},
