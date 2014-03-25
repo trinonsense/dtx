@@ -1,9 +1,9 @@
-var appVersion = '0.0.1';
+var appVersion = '1.0.0';
 
 require.config({
 	enforceDefine: true,
 	baseUrl: 'js',
-	urlArgs: 'v=' + appVersion,
+	urlArgs: 'v=' + '1.0.0',
 	paths: {
 		jquery: '../bower_packages/jquery/dist/jquery',
 		backbone: '../bower_packages/backbone/backbone',
