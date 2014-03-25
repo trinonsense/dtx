@@ -12,6 +12,18 @@ body {
 	overflow: hidden;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
+	color: $BG-COLOR;
+}
+
+a {
+	@include transition-property(color background-color);
+	@include transition-duration(350ms);
+	color: $BG-COLOR;
+
+	@include hover {
+		background-color: $BG-COLOR;
+		color: $FG-COLOR;
+	}
 }
 
 html, body, .main-map {

@@ -8,7 +8,6 @@ define([
 	var AboutView = Backbone.View.extend({
 		el: $('.about')[0],
 		events: {
-			'click .about': 'close',
 			'click .about__close': 'close'
 		},
 

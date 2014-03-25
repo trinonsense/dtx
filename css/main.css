@@ -1366,19 +1366,38 @@ body {
   overflow: hidden;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
+  color: rgba(51, 51, 51, 0.9);
 }
 
-/* line 17, ../scss/main.scss */
+/* line 18, ../scss/main.scss */
+a {
+  -webkit-transition-property: color, background-color;
+  -moz-transition-property: color, background-color;
+  -o-transition-property: color, background-color;
+  transition-property: color background-color;
+  -webkit-transition-duration: 350ms;
+  -moz-transition-duration: 350ms;
+  -o-transition-duration: 350ms;
+  transition-duration: 350ms;
+  color: rgba(51, 51, 51, 0.9);
+}
+/* line 10, ../scss/_libs.scss */
+html.no-touch a:hover, html.touch a:active {
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #f6f6f6;
+}
+
+/* line 29, ../scss/main.scss */
 html, body, .main-map {
   height: 100%;
 }
 
-/* line 21, ../scss/main.scss */
+/* line 33, ../scss/main.scss */
 .main-map {
   z-index: 1;
 }
 
-/* line 25, ../scss/main.scss */
+/* line 37, ../scss/main.scss */
 .main-menu {
   -webkit-transition: top 300ms;
   -moz-transition: top 300ms;
@@ -1391,12 +1410,12 @@ html, body, .main-map {
   padding: 0;
   list-style-type: none;
 }
-/* line 35, ../scss/main.scss */
+/* line 47, ../scss/main.scss */
 html.no-touch .main-menu:hover, html.touch .main-menu.is-open {
   top: 0;
 }
 
-/* line 39, ../scss/main.scss */
+/* line 51, ../scss/main.scss */
 .main-menu__item a {
   -webkit-transition: background-color 250ms;
   -moz-transition: background-color 250ms;
@@ -1413,16 +1432,16 @@ html.no-touch .main-menu__item a:hover, html.touch .main-menu__item a:active {
   background-color: rgba(102, 102, 102, 0.9);
 }
 
-/* line 51, ../scss/main.scss */
+/* line 63, ../scss/main.scss */
 .main-menu__toggle a {
   border-bottom-right-radius: .5em;
 }
-/* line 54, ../scss/main.scss */
+/* line 66, ../scss/main.scss */
 .main-menu.is-open .main-menu__toggle a {
   background-color: rgba(195, 100, 100, 0.9);
 }
 
-/* line 59, ../scss/main.scss */
+/* line 71, ../scss/main.scss */
 .info-panel {
   -webkit-box-shadow: 0px -2px 10px rgba(77, 77, 77, 0.9);
   -moz-box-shadow: 0px -2px 10px rgba(77, 77, 77, 0.9);
@@ -1451,12 +1470,12 @@ html.no-touch .main-menu__item a:hover, html.touch .main-menu__item a:active {
   color: #f6f6f6;
   z-index: 2;
 }
-/* line 75, ../scss/main.scss */
+/* line 87, ../scss/main.scss */
 .info-panel.is-open {
   bottom: 0;
 }
 
-/* line 79, ../scss/main.scss */
+/* line 91, ../scss/main.scss */
 .info-nav {
   display: -webkit-box;
   display: -moz-box;
@@ -1481,23 +1500,23 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   background-color: rgba(102, 102, 102, 0.9);
 }
 
-/* line 90, ../scss/main.scss */
+/* line 102, ../scss/main.scss */
 .info-nav__icon {
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
-/* line 99, ../scss/main.scss */
+/* line 111, ../scss/main.scss */
 .info-nav__icon.left {
   border-right: 10px solid #f6f6f6;
 }
-/* line 102, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 .info-nav__icon.right {
   border-left: 10px solid #f6f6f6;
 }
 
-/* line 106, ../scss/main.scss */
+/* line 118, ../scss/main.scss */
 .location-title {
   -webkit-box-flex: 1 0;
   -moz-box-flex: 1 0;
@@ -1513,13 +1532,13 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   text-align: center;
   margin: 0 5px;
 }
-/* line 112, ../scss/main.scss */
+/* line 124, ../scss/main.scss */
 .location-title a {
   text-decoration: none;
   color: #f6f6f6;
 }
 
-/* line 118, ../scss/main.scss */
+/* line 130, ../scss/main.scss */
 .about {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1543,18 +1562,18 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   width: 100%;
   top: 0;
 }
-/* line 130, ../scss/main.scss */
+/* line 142, ../scss/main.scss */
 .about.is-hidden {
   display: none;
 }
 
-/* line 134, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 .about__content {
   max-width: 425px;
   overflow: scroll;
 }
 
-/* line 138, ../scss/main.scss */
+/* line 150, ../scss/main.scss */
 .about__close {
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
