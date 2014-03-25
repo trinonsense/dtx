@@ -115,6 +115,10 @@ html, body, .main-map {
 		text-decoration: none;
 		color: $FG-COLOR;
 	}
+
+	@include breakpoint(small) {
+		font-size: 1.5em;
+	}
 }
 
 .about {

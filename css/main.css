@@ -1515,8 +1515,14 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   text-decoration: none;
   color: #f6f6f6;
 }
+@media only screen and (max-width: 400px) {
+  /* line 108, ../scss/main.scss */
+  .location-title {
+    font-size: 1.5em;
+  }
+}
 
-/* line 120, ../scss/main.scss */
+/* line 124, ../scss/main.scss */
 .about {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1540,11 +1546,11 @@ html.no-touch .info-nav:hover, html.touch .info-nav:active {
   width: 100%;
   top: 0;
 }
-/* line 132, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 .about.is-hidden {
   display: none;
 }
-/* line 136, ../scss/main.scss */
+/* line 140, ../scss/main.scss */
 .about a {
   -webkit-transition-property: color, background-color;
   -moz-transition-property: color, background-color;
@@ -1562,13 +1568,13 @@ html.no-touch .about a:hover, html.touch .about a:active {
   color: #f6f6f6;
 }
 
-/* line 147, ../scss/main.scss */
+/* line 151, ../scss/main.scss */
 .about__content {
   max-width: 425px;
   overflow: scroll;
 }
 
-/* line 151, ../scss/main.scss */
+/* line 155, ../scss/main.scss */
 .about__close {
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;

@@ -11,3 +11,11 @@
 		@content;
 	}
 }
+
+@mixin breakpoint($size) {
+	@if $size == small {
+		@media only screen and (max-width : 400px) {
+			@content;
+		}
+	}
+}
