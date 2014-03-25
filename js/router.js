@@ -13,7 +13,6 @@ define([
 	var Router = Backbone.Router.extend({
 		routes: {
 			'(/)': 'home',
-			'about(/)': 'about',
 			'category/:category': 'category',
 			'category/:category/:location(/)': 'categoryLocation',
 			'location/:location': 'location',
@@ -28,7 +27,7 @@ define([
 			options = options || {};
 
 			if (!app.alreadyStarted && !options.dontShowAbout) {
-				this.about();
+				app.views.aboutView.show();
 			}
 
 			app.views.mapView
@@ -42,14 +41,6 @@ define([
 			if (!options.dontSetMapBounds) {
 				app.views.mapView.setMapBounds();
 			}
-		},
-
-		about: function() {
-			if (!app.alreadyStarted) {
-				this.home({dontShowAbout: true});
-			}
-
-			app.views.aboutView.show();
 		},
 
 		category: function(categoryName, options) {
