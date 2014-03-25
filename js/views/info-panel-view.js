@@ -24,7 +24,7 @@ define([
 		showInfo: function(location) {
 			this.model = location;
 			this.$el
-				.addClass('is-open')
+				.removeClass('is-hidden')
 				.find('.location-title a')
 					.text(this.model.get('title'))
 					.attr('href', this.model.get('link'));
@@ -33,7 +33,7 @@ define([
 		},
 
 		hideInfoPanel: function() {
-			this.$el.removeClass('is-open');
+			this.$el.addClass('is-hidden');
 			return this;
 		}
 	});
