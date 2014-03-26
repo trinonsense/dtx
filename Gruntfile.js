@@ -62,7 +62,17 @@ module.exports = function(grunt) {
 		},
 
 		requirejs: {
-			options: {}
+			compile: {
+				options: {
+					baseUrl: 'js/',
+					mainConfigFile: 'js/require-config.js',
+					// optimize: 'none',
+					name: 'require-config',
+					insertRequire: ['require-config'],
+					include: ['../bower_packages/requirejs/require'],
+					out: 'js/main.min.js'
+				}
+			}
 		},
 
 		jasmine: {
