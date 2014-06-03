@@ -4,11 +4,10 @@
   "dependencies": {
     "bower": "",
     "grunt-cli": "",
-    "grunt-contrib-compass": "",
+    "grunt-contrib-compass": "^0.7.2",
     "grunt-contrib-jasmine": "",
-    "grunt-contrib-jshint": "",
-    "grunt-contrib-requirejs": "",
-    "grunt-contrib-watch": "",
-    "grunt-contrib-handlebars": "^0.7.0"
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-watch": "^0.6.1"
   }
 }
