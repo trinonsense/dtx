@@ -15,8 +15,8 @@ define([
 		mapHandler: function() {/* noop */},
 
 		initialize: function() {
-			var tileURL = 'http://{s}.tile.cloudmade.com/bdd6cda1b22b4048b78ca7a8e7f7f909/1714' +
-				(L.Browser.retina? '@2x': '') + '/256/{z}/{x}/{y}.png';
+			var tileURL = 'http://{s}.tiles.mapbox.com/v3/trinonsense.idi44425' +
+				'/{z}/{x}/{y}' + (L.Browser.retina? '.@2x': '') + '.png';
 			this.map = L.map('map', {attributionControl: false, zoomAnimationThreshold: 18});
 			this.map.zoomControl.setPosition('topright');
 
