@@ -1,6 +1,6 @@
 {
   "name": "dtx",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "main": "css/main.css",
   "private": true,
   "ignore": [
