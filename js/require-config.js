@@ -1,7 +1,7 @@
 require.config({
 	enforceDefine: true,
 	baseUrl: 'js',
-	urlArgs: 'v=1.1.0',
+	urlArgs: 'v=1.1.1',
 	paths: {
 		jquery: '../bower_packages/jquery/dist/jquery',
 		backbone: '../bower_packages/backbone/backbone',
